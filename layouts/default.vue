@@ -86,6 +86,11 @@ export default {
           to: { name: 'index' },
         },
         {
+          title: '英単語',
+          icon: 'lightbulb',
+          to: { name: 'english-typing' },
+        },
+        {
           title: 'Inspire',
           icon: 'lightbulb',
           to: { name: 'inspire' },
