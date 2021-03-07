@@ -6,7 +6,7 @@
       aria-label="main navigation"
     >
       <div class="navbar-brand">
-        <a class="navbar-item px-3" href="/">
+        <a class="navbar-item px-3" href="/planning">
           <b-icon icon="head-lightbulb" size="is-medium" />
           <!-- <img src="~assets/logo.png" /> -->
           <strong>Wander Map</strong>
