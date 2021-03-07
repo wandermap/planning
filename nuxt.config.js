@@ -9,7 +9,7 @@ export default {
   head: {
     title: 'plan',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'ja',
     },
     meta: [
       { charset: 'utf-8' },
@@ -22,7 +22,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [`~/assets/color.scss`],
+  css: [`~/assets/color.scss`, `~/assets/global.css`],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
