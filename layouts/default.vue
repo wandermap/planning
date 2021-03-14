@@ -1,5 +1,9 @@
 <template>
   <div>
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
     <nav
       class="navbar header has-shadow is-primary"
       role="navigation"
@@ -85,15 +89,21 @@ export default {
           icon: 'home',
           to: { name: 'index' },
         },
+
+        {
+          title: 'クラス',
+          icon: 'google-classroom ',
+          to: { name: 'classroom' },
+        },
+        {
+          title: 'メンバー',
+          icon: 'google-classroom ',
+          to: { name: 'member' },
+        },
         {
           title: '英単語',
           icon: 'lightbulb',
           to: { name: 'english-typing' },
-        },
-        {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' },
         },
       ],
     }
@@ -106,5 +116,15 @@ export default {
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+aside {
+  /* height: calc(100vh - 70px); */
+  min-width: 150px;
+  background: ghostwhite;
+}
+
+.section {
+  padding: 1rem 1.5rem;
 }
 </style>
