@@ -127,4 +127,16 @@ aside {
 .section {
   padding: 1rem 1.5rem;
 }
+
+.center {
+  text-align: center;
+}
+
+.center input {
+  text-align: center;
+}
+
+.modal-card-foot {
+  justify-content: flex-end;
+}
 </style>
