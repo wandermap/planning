@@ -1,6 +1,7 @@
 <template>
   <section class="section">
-    <b class="is-size-4">メンバー管理</b>
+    <div class="is-size-4 has-text-weight-bold">メンバー管理</div>
+    <b-button type="is-primary " @click="showModal = true">追加</b-button>
 
     <b-table
       :data="isEmpty ? [] : data"
@@ -8,6 +9,7 @@
       :narrowed="true"
       :hoverable="true"
       :mobile-cards="true"
+      class="mt-2"
     >
       <b-table-column
         field="id"
@@ -21,21 +23,21 @@
       </b-table-column>
 
       <b-table-column
-        field="first_name"
-        label="First Name"
-        header-class="has-background-primary-light"
-        v-slot="props"
-      >
-        {{ props.row.first_name }}
-      </b-table-column>
-
-      <b-table-column
         field="last_name"
-        label="Last Name"
+        label="姓"
         header-class="has-background-primary-light"
         v-slot="props"
       >
         {{ props.row.last_name }}
+      </b-table-column>
+
+      <b-table-column
+        field="first_name"
+        label="名"
+        header-class="has-background-primary-light"
+        v-slot="props"
+      >
+        {{ props.row.first_name }}
       </b-table-column>
 
       <b-table-column
@@ -63,12 +65,79 @@
           {{ props.row.gender }}
         </span>
       </b-table-column>
+
+      <b-table-column
+        field="Edit"
+        label="Edit"
+        header-class="has-background-primary-light"
+        v-slot="props"
+      >
+        <b-button
+          class="fas fa-edit"
+          v-model="props.row.id"
+          @click="showModal = true"
+        ></b-button>
+      </b-table-column>
     </b-table>
+
+    <!-- モーダル -->
+    <b-modal
+      v-model="showModal"
+      has-modal-card
+      trap-focus
+      aria-role="dialog"
+      aria-label="Example Modal"
+      aria-modal
+    >
+      <div class="modal-card" style="width: auto">
+        <header class="modal-card-head">
+          <p class="modal-card-title">メンバー追加</p>
+          <button type="button" class="delete" @click="showModal = false" />
+        </header>
+
+        <section class="modal-card-body">
+          <b-field label="姓">
+            <b-input
+              v-model="last_name"
+              type="text"
+              class="center"
+              placeholder="A"
+            >
+            </b-input>
+          </b-field>
+
+          <b-field label="名">
+            <b-input
+              v-model="fast_name"
+              type="text"
+              class="center"
+              placeholder="A"
+            >
+            </b-input>
+          </b-field>
+
+          <div class="block">
+            <b-radio v-model="radio" name="gender" native-value="Male">
+              Male
+            </b-radio>
+            <b-radio v-model="radio" name="gender" native-value="Female">
+              Female
+            </b-radio>
+          </div>
+        </section>
+
+        <footer class="modal-card-foot">
+          <b-button label="キャンセル" @click="showModal = false" />
+          <b-button label="登録" type="is-primary" @click="addMember" />
+        </footer>
+      </div>
+    </b-modal>
   </section>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import Buefy from 'buefy'
 export default Vue.extend({
   data() {
     return {
@@ -109,7 +178,34 @@ export default Vue.extend({
           gender: 'Female',
         },
       ],
+      showModal: false,
+      name: '',
+      fast_name: '',
+      last_name: '',
+      note: '',
+      radio: 'Male',
     }
+  },
+  methods: {
+    addMember() {
+      const len = this.data.length + 1
+      this.data.push({
+        id: len,
+        first_name: this.fast_name,
+        last_name: this.last_name,
+        date: '2016-10-15 13:43:27',
+        gender: this.radio,
+      })
+      this.name = ''
+      this.showModal = false
+    },
+
+    confirm(): any {
+      this.$buefy.dialog.confirm({
+        message: 'クラス' + this.name + 'を削除しますか？',
+        onConfirm: () => this.$buefy.toast.open('作成しました'),
+      })
+    },
   },
 })
 </script>

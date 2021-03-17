@@ -60,11 +60,18 @@ export default Vue.extend({
     form: function (e) {
       if (e == this.answer) {
         this.ens[this.num].result = '〇'
+        this.$buefy.toast.open({
+          duration: 500,
+          message: `正解`,
+          position: 'is-top',
+          type: 'is-danger',
+        })
         this.form = ''
         if (this.num == this.len - 1) {
           this.num = this.len
           this.question = 'クリア！'
           this.fin = true
+          this.$buefy.dialog.alert('クリア!')
           return
         }
         this.num = this.num + 1

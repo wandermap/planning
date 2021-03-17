@@ -4,9 +4,10 @@
     <b-button type="is-primary " @click="showModal = true">追加</b-button>
     <!-- カード -->
     <div class="grid is-mobile">
-      <article
+      <nuxt-link
         v-for="item in items"
         :key="item.id"
+        to="member"
         class="card message is-primary mx-2 my-2"
       >
         <div class="message-header">
@@ -17,7 +18,7 @@
           <b-icon :icon="item.icon" />
           **************
         </div>
-      </article>
+      </nuxt-link>
     </div>
 
     <!-- モーダル -->
@@ -25,7 +26,6 @@
       v-model="showModal"
       has-modal-card
       trap-focus
-      :destroy-on-hide="false"
       aria-role="dialog"
       aria-label="Example Modal"
       aria-modal
@@ -77,13 +77,14 @@ export default Vue.extend({
     addClass() {
       const len = this.items.length + 1
       this.items.push({ id: len, name: this.name, icon: 'google-classroom ' })
+      this.name = ''
       this.showModal = false
     },
 
     confirm(): any {
       this.$buefy.dialog.confirm({
-        message: 'Continue on this task?',
-        onConfirm: () => this.$buefy.toast.open('User confirmed'),
+        message: 'クラス' + this.name + 'を削除しますか？',
+        onConfirm: () => this.$buefy.toast.open('作成しました'),
       })
     },
   },
