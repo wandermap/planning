@@ -11,16 +11,19 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.1",
+    "chart.js": "^3.0.1",
     "core-js": "^3.8.3",
     "nuxt": "^2.14.12",
     "nuxt-buefy": "^0.4.4",
     "push-dir": "^0.4.1",
     "sass": "^1.32.8",
-    "sass-loader": "10.1.1"
+    "sass-loader": "10.1.1",
+    "vue-chartjs": "^3.5.1"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.12",
     "@nuxt/typescript-build": "^2.0.4",
+    "@nuxtjs/moment": "^1.6.1",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
     "prettier": "^2.2.1"

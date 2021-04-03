@@ -4,6 +4,11 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
+.flex-b {
+  display: flex;
+  justify-content: space-between;
+}
+
 .center {
   text-align: center;
 }

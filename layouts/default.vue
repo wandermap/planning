@@ -105,6 +105,11 @@ export default {
           icon: 'lightbulb',
           to: { name: 'english-typing' },
         },
+        {
+          title: '好きな言葉vs嫌いな言葉',
+          icon: 'lightbulb',
+          to: { name: 'word-battle' },
+        },
       ],
     }
   },
