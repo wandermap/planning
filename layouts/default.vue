@@ -110,6 +110,11 @@ export default {
           icon: 'lightbulb',
           to: { name: 'word-battle' },
         },
+        {
+          title: '選択問題',
+          icon: 'lightbulb',
+          to: { name: 'quiz-select' },
+        },
       ],
     }
   },
